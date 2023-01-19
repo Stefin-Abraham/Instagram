@@ -1,25 +1,42 @@
-import  React from 'react';
+import  React, { useState } from 'react';
 import './App.css';
 import Post from './Post';
 
 function App() {
+  const [posts, setPosts] = useState([
+    {
+      username: "Cleverqazi", 
+      caption: "Wow It Works", 
+      imageUrl: "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+    },
+    {
+      username: "Cleverqazi", 
+      caption: "Wow It Works", 
+      imageUrl: "https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+
+    }
+  ]);
+  
   return (
     <div className="app">
 
      <div className="app__header">
       <img
-      className="app__headerImage"
-      src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
-      alt=''
+        className="app__headerImage"
+        src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
+        alt='/'
       />
      </div>
 
      <h1>Hello World</h1>
+     
+     {
+       posts.map(post =>(
+         < Post username={post.username} caption={post.caption} imageUrl={post.imageUrl}/>
+        ))
+     }
 
-     <Post></Post>
-
-
-
+     
     </div>
   );
 }
